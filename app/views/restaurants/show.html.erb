@@ -7,7 +7,15 @@
   <p><%= @restaurant.category %></p>
 </div>
 
-<p><%= link_to "Edit", edit_restaurant_path %></p>
+<div>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+    <% end %>
+  </ul>
+</div>
+
+<p><%= link_to "edit", edit_restaurant_path %></p>
 <p><%= link_to "add a review", new_restaurant_review_path(@restaurant) %></p>
 <p><%= link_to "go back to homepage", restaurants_path %></p>
 
